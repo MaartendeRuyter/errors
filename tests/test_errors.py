@@ -30,10 +30,7 @@ def test_register_invalid_error_class_list_error():
 
 
 def test_error_description_for_undefined_error_code_raises_exception():
-    """
-    Test retrieving error_description for an undefined error code raises
-    exception.
-    """
+    """Error_description for undefined error code raises exception. """
     non_existing_error_code = 'non existing'
     with pytest.raises(KeyError):
         ListErrors.error_description(error_code=non_existing_error_code)
