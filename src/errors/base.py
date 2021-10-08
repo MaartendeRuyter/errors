@@ -5,8 +5,8 @@ enumerators:
     - BaseEnumerator
     - FunctionalErrorsBaseClass
 """
-from enum import Enum
 from dataclasses import dataclass
+from enum import Enum
 
 
 @dataclass(frozen=True)

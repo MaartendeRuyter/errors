@@ -2,8 +2,10 @@
 Module to provide test methods for errors.enumerator module
 """
 import pytest
-from errors.base import \
-    ErrorsClassErrors, ErrorCode, BaseEnumerator
+
+from errors.base import BaseEnumerator
+from errors.base import ErrorCode
+from errors.base import ErrorsClassErrors
 
 
 def test_base_enumerators_class_exists():

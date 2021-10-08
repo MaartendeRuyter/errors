@@ -1,6 +1,9 @@
-
-from .base import \
-    ErrorsClassErrors, ErrorCode, FunctionalErrorsBaseClass
+"""
+Module to define ListErrors class
+"""
+from errors.base import ErrorCode
+from errors.base import ErrorsClassErrors
+from errors.base import FunctionalErrorsBaseClass
 
 
 class ListErrors():

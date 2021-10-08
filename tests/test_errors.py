@@ -2,7 +2,6 @@
 Module to provide test methods for errors.error module
 """
 from errors.cli import main
-
 from errors.error import ListErrors
 
 
