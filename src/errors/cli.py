@@ -1,4 +1,5 @@
-"""Module that contains the command line app.
+"""
+Module that contains the command line app.
 
 Why does this file exist, and why not put this in __main__?
 
@@ -27,7 +28,7 @@ def main(argv=None):
     Does stuff.
     """
     if not argv:
-      argv = sys.argv
+        argv = sys.argv
 
     print(argv)
     return 0
