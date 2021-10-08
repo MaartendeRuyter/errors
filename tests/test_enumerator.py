@@ -4,6 +4,7 @@ import pytest
 from errors.base import BaseEnumerator
 from errors.base import ErrorCode
 from errors.base import ErrorsClassErrors
+from errors.base import add_error_data
 
 
 def test_base_enumerators_class_exists():
@@ -22,7 +23,7 @@ def test_values_method_on_base_enumerators_class():
 
 
 def test_errors_class_errors_exists():
-    """Ensure ErrorsClassErrors class exists"""
+    """Ensure ErrorsClassErrors class exists."""
     assert ErrorsClassErrors
 
 
@@ -49,3 +50,10 @@ def test_error_code_has_optional_error_data_field():
     """Ensure ErrorCode has an optional error data field."""
     assert ErrorCode(code='TEST_001', description='TEST')
     assert ErrorCode(code='TEST_001', description='TEST', error_data='data')
+
+
+def test_add_error_data():
+    """Adding error data to ErrorObject succesfull."""
+    error = ErrorsClassErrors.COULD_NOT_FIND_ERROR_CODE.value
+    error_data = {'data': 'example'}
+    assert add_error_data(error, error_data).error_data == error_data

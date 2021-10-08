@@ -7,14 +7,15 @@ source =
 branch = true
 source =
     errors
-    tests
 parallel = true
 omit =
-    __main__.py
+    src/errors/__main__.py
+    src/errors/cli.py
 
 [report]
 show_missing = true
 precision = 2
 omit = 
     *migrations*
-    __main__.py
+    src/errors/__main__.py
+    src/errors/cli.py

@@ -17,7 +17,7 @@ class ErrorCode():
 
 
 def add_error_data(error: ErrorCode, error_data: dict) -> ErrorCode:
-    """method to add error_data to and error object."""
+    """Method to add error_data to and error object."""
     return ErrorCode(
         code=error.code,
         description=error.description,
