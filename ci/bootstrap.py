@@ -5,13 +5,13 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 import os
-from subprocess import check_call as subprocess_check_call
-from subprocess import check_output
 import sys
 from os.path import abspath
 from os.path import dirname
 from os.path import exists
 from os.path import join
+from subprocess import check_call as subprocess_check_call
+from subprocess import check_output
 
 base_path = dirname(dirname(abspath(__file__)))
 
