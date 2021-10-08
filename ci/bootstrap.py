@@ -5,7 +5,8 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 import os
-import subprocess
+from subprocess import check_call as subprocess_check_call
+from subprocess import check_output
 import sys
 from os.path import abspath
 from os.path import dirname
@@ -17,7 +18,7 @@ base_path = dirname(dirname(abspath(__file__)))
 
 def check_call(args):
     print("+", *args)
-    subprocess.check_call(args)
+    subprocess_check_call(args)
 
 
 def exec_in_env():
@@ -68,13 +69,17 @@ def main():
         # This uses sys.executable the same way that the call in
         # cookiecutter-pylibrary/hooks/post_gen_project.py
         # invokes this bootstrap.py itself.
-        for line in subprocess.check_output([sys.executable, '-m', 'tox', '--listenvs'], universal_newlines=True).splitlines()
+        for line in check_output(
+            [sys.executable, '-m', 'tox', '--listenvs'],
+            universal_newlines=True).splitlines()
     ]
-    tox_environments = [line for line in tox_environments if line.startswith('py')]
+    tox_environments = [
+        line for line in tox_environments if line.startswith('py')]
 
     for name in os.listdir(join("ci", "templates")):
         with open(join(base_path, name), "w") as fh:
-            fh.write(jinja.get_template(name).render(tox_environments=tox_environments))
+            fh.write(jinja.get_template(name).render(
+                tox_environments=tox_environments))
         print("Wrote {}".format(name))
     print("DONE.")
 

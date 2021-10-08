@@ -41,8 +41,8 @@ def test_error_description_for_undefined_error_code_raises_exception():
 
 def test_error_description_retrieved_for_existing_error_code():
     """
-    Test retrieving error_description for an undefined error code raises
-    exception.
+    Test retrieving error_description for a defined error code returns
+    the correct description.
     """
     description = ListErrors.error_description(error_code='ER_GETERROR_00001')
     assert ErrorsClassErrors.COULD_NOT_FIND_ERROR_CODE.value.description == \

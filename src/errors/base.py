@@ -17,7 +17,7 @@ class ErrorCode():
 
 
 def add_error_data(error: ErrorCode, error_data: dict) -> ErrorCode:
-    """ method to add error_data to and error object """
+    """method to add error_data to and error object."""
     return ErrorCode(
         code=error.code,
         description=error.description,
@@ -27,7 +27,7 @@ def add_error_data(error: ErrorCode, error_data: dict) -> ErrorCode:
 class BaseEnumerator(Enum):
     """
     Class to define base enumerator with values and keys methods
-    Only to be used for defining new enumerators
+    Only to be used for defining new enumerators.
     """
 
     @classmethod
