@@ -1,0 +1,56 @@
+"""
+Module to define enumerators for get_data module
+
+enumerators:
+    - BaseEnumerator
+    - FunctionalErrorsBaseClass
+"""
+from enum import Enum
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class ErrorCode():
+    code: str
+    description: str
+    error_data: dict = dict
+
+
+def add_error_data(error: ErrorCode, error_data: dict) -> ErrorCode:
+    """ method to add error_data to and error object """
+    return ErrorCode(
+        code=error.code, 
+        description=error.description,
+        error_data=error_data)
+
+class BaseEnumerator(Enum):
+    """
+    Class to define base enumerator with values and keys methods
+    Only to be used for defining new enumerators
+    """
+
+    @classmethod
+    def values(cls):
+        return [item.value for item in list(cls.__members__.values())]
+
+    @classmethod
+    def keys(cls):
+        return list(cls.__members__.keys())
+
+
+class FunctionalErrorsBaseClass(BaseEnumerator):
+    """
+    Abstract class to define custom error code and message.
+    """
+    pass
+    
+
+
+class ErrorsClassErrors(FunctionalErrorsBaseClass):
+    """
+    Class to define enumerator errors for Error module
+    """
+    COULD_NOT_FIND_ERROR_CODE = ErrorCode(
+        code='ER_GETERROR_00001',
+        description='Could not find requested error code')
+
