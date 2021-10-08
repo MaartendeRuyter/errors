@@ -10,7 +10,7 @@ Overview
     * - docs
       - |docs|
     * - tests
-      - | |travis| |appveyor| |requires|
+      - | |travis| |requires|
         | |codecov|
     * - package
       - | |version| |wheel| |supported-versions| |supported-implementations|
@@ -22,10 +22,6 @@ Overview
 .. |travis| image:: https://api.travis-ci.com/MaartendeRuyter/errors.svg?branch=master
     :alt: Travis-CI Build Status
     :target: https://travis-ci.com/github/MaartendeRuyter/errors
-
-.. |appveyor| image:: https://ci.appveyor.com/api/projects/status/github/MaartendeRuyter/errors?branch=master&svg=true
-    :alt: AppVeyor Build Status
-    :target: https://ci.appveyor.com/project/MaartendeRuyter/errors
 
 .. |requires| image:: https://requires.io/github/MaartendeRuyter/errors/requirements.svg?branch=master
     :alt: Requirements Status

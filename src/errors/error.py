@@ -1,6 +1,4 @@
-"""
-Module to define ListErrors class
-"""
+"""Module to define ListErrors class."""
 from errors.base import ErrorCode
 from errors.base import ErrorsClassErrors
 from errors.base import FunctionalErrorsBaseClass
@@ -14,6 +12,7 @@ class ListErrors():
 
     @classmethod
     def register_errors(cls, errors):
+        """Class method to register new errors."""
         if not issubclass(errors, FunctionalErrorsBaseClass):
             raise ValueError('no good class')
         for key in errors.keys():
