@@ -19,9 +19,10 @@ class ErrorCode():
 def add_error_data(error: ErrorCode, error_data: dict) -> ErrorCode:
     """ method to add error_data to and error object """
     return ErrorCode(
-        code=error.code, 
+        code=error.code,
         description=error.description,
         error_data=error_data)
+
 
 class BaseEnumerator(Enum):
     """
@@ -43,7 +44,6 @@ class FunctionalErrorsBaseClass(BaseEnumerator):
     Abstract class to define custom error code and message.
     """
     pass
-    
 
 
 class ErrorsClassErrors(FunctionalErrorsBaseClass):
@@ -53,4 +53,3 @@ class ErrorsClassErrors(FunctionalErrorsBaseClass):
     COULD_NOT_FIND_ERROR_CODE = ErrorCode(
         code='ER_GETERROR_00001',
         description='Could not find requested error code')
-

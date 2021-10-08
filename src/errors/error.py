@@ -25,12 +25,13 @@ class ListErrors():
                 ErrorsClassErrors.COULD_NOT_FIND_ERROR_CODE
             ))
         return error
-    
+
     @staticmethod
     def error_object(error_code: ErrorCode) -> dict:
         return {
             'error': error_code.code,
             'description': error_code.description
         }
+
 
 ListErrors.register_errors(ErrorsClassErrors)

@@ -49,4 +49,3 @@ def test_error_code_has_optional_error_data_field():
     """Ensure ErrorCode has an optional error data field"""
     assert ErrorCode(code='TEST_001', description='TEST')
     assert ErrorCode(code='TEST_001', description='TEST', error_data='data')
-
