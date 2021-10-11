@@ -11,7 +11,7 @@ Error-manager: Managing error codes throughout you project
 
 -------------------
 
-**errors manager main use cases **::
+**errors manager main use cases**::
 
     # retrieve error message from error code
     >>> from errors.error import ListErrors
@@ -29,18 +29,9 @@ Error-manager: Managing error codes throughout you project
     >>> error_with_data = add_error_data(error, {'key': 'Example error data'})
     >>> error_with_data 
     ErrorCode(code='ER_GETERROR_00001', description='Could not find requested error code', error_data={'key': 'Example error data'})
-
-
     
     # add custom messages to ListErrors (see chapter create custom error classes)
     >>> ListErrors.register_errors(<CustomErrorClassEnumerator>)
-    
-    >>> r.encoding
-    'utf-8'
-    >>> r.text
-    '{"type":"User"...'
-    >>> r.json()
-    {'private_gists': 419, 'total_private_repos': 77, ...}
 
 .. toctree::
    :maxdepth: 2
