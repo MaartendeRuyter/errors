@@ -22,8 +22,8 @@ def read(*names, **kwargs):
 
 
 setup(
-    name='errors',
-    version='0.1.0',
+    name='error-manager',
+    version='0.1.1',
     license='LGPL-3.0-or-later',
     description='Module to manage error code, descriptions and data in a unified way throughout a project',
     long_description='%s\n%s' % (
@@ -42,7 +42,7 @@ setup(
         # complete classifier list: http://pypi.python.org/pypi?%3Aaction=list_classifiers
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)'
+        'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',
         'Operating System :: Unix',
         'Operating System :: POSIX',
         'Operating System :: Microsoft :: Windows',

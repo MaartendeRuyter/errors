@@ -4,4 +4,4 @@ Installation
 
 At the command line::
 
-    pip install errors
+    pip install error-manager

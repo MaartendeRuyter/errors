@@ -31,21 +31,21 @@ Overview
     :alt: Coverage Status
     :target: https://codecov.io/github/MaartendeRuyter/errors
 
-.. |version| image:: https://img.shields.io/pypi/v/errors.svg
+.. |version| image:: https://img.shields.io/pypi/v/error-manager.svg
     :alt: PyPI Package latest release
-    :target: https://pypi.org/project/errors
+    :target: https://pypi.org/project/error-manager
 
-.. |wheel| image:: https://img.shields.io/pypi/wheel/errors.svg
+.. |wheel| image:: https://img.shields.io/pypi/wheel/error-manager.svg
     :alt: PyPI Wheel
-    :target: https://pypi.org/project/errors
+    :target: https://pypi.org/project/error-manager
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/errors.svg
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/error-manager.svg
     :alt: Supported versions
-    :target: https://pypi.org/project/errors
+    :target: https://pypi.org/project/error-manager
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/errors.svg
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/errors-manager.svg
     :alt: Supported implementations
-    :target: https://pypi.org/project/errors
+    :target: https://pypi.org/project/error-manager
 
 .. |commits-since| image:: https://img.shields.io/github/commits-since/MaartendeRuyter/errors/v0.1.0.svg
     :alt: Commits since latest release
@@ -64,11 +64,11 @@ Installation
 
 ::
 
-    pip install errors
+    pip install error-manager
 
 You can also install the in-development version with::
 
-    pip install https://github.com/MaartendeRuyter/errors/archive/master.zip
+    pip install https://github.com/MaartendeRuyter/error-manager/archive/master.zip
 
 
 Documentation
