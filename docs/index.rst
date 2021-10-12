@@ -19,7 +19,7 @@ Managing error codes throughout you project
     * - tests
       - |travis| |requires| |codecov|
     * - package
-      - |version| |commits-since|
+      - |version| |supported-versions| |commits-since|
   
 .. |docs| image:: https://readthedocs.org/projects/errors/badge/?style=flat
     :target: https://errors.readthedocs.io/
@@ -41,6 +41,10 @@ Managing error codes throughout you project
     :alt: PyPI Package latest release
     :target: https://pypi.org/project/error-manager
 
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/error-manager.svg
+    :alt: Supported versions
+    :target: https://pypi.org/project/error-manager
+
 .. |commits-since| image:: https://img.shields.io/github/commits-since/MaartendeRuyter/errors/v0.1.0.svg
     :alt: Commits since latest release
     :target: https://github.com/MaartendeRuyter/errors/compare/v0.1.0...master
@@ -53,7 +57,7 @@ Managing error codes throughout you project
 
 -------------------
 
-**errors manager main use cases**::
+**error-manager main use cases**::
 
     # retrieve customer defined ErrorCode object form ``ListErrors`` class
     >>> from errors.error import ListErrors
@@ -69,15 +73,21 @@ Managing error codes throughout you project
     >>> error_with_data 
     ErrorCode(code='ER_GETERROR_00001', description='Could not find requested error code', error_data={'key': 'Example error data'})
     
-see usage section on how to create and register custom error codes for your
-project
+see :doc:`usage section <usage>` on how to create and
+register custom error codes for your project
 
 .. toctree::
    :maxdepth: 2
 
-   readme
    usage
    reference/index
    contributing
    authors
    changelog
+
+
+Indices and tables
+==================
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

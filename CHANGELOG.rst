@@ -19,8 +19,8 @@ Changelog
 
 * Added Documentation and removed default redundant Documentation
   
-0.9.1 (2021-10-12)
+1.0.0 (2021-10-12)
 ------------------
 
 * Added Documentation and removed more default but redundant Documentation
-   
+* Added reference documentation for ``ListErrors`` and ``base`` module   

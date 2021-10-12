@@ -11,13 +11,21 @@ from enum import Enum
 
 @dataclass(frozen=True)
 class ErrorCode():
+    """Immutable dataclass to define error codes."""
     code: str
     description: str
     error_data: dict = dict
 
 
 def add_error_data(error: ErrorCode, error_data: dict) -> ErrorCode:
-    """Method to add error_data to and error object."""
+    """Method to add error_data to and error object.
+
+    :param error: error code object to be joined with error_data
+    :type error: ErrorCode
+    :param error_data: error data to be added to error code
+    :type error_data: dict
+    :returns:  ErrorCode -- New ErrorCode object with error_data added
+    """
     return ErrorCode(
         code=error.code,
         description=error.description,
