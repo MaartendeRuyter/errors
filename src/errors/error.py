@@ -5,6 +5,7 @@ from errors.base import FunctionalErrorsBaseClass
 
 
 class ListErrors():
+    """Singleton Class for registering and retrieving error codes"""
     _errors = {}
 
     def __new__(cls):
@@ -42,6 +43,7 @@ class ListErrors():
 
     @staticmethod
     def error_object(error_code: ErrorCode) -> dict:
+        """Transforms error code into dict."""
         return {
             'error': error_code.code,
             'description': error_code.description

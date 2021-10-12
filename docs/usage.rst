@@ -10,7 +10,6 @@ The error-manager module provides your project with
 
 Defining an error code
 ----------------------
-
 The error-manager package provide a simple non mutable dataclass ErrorCode
 that should be used to define error codes::
 
@@ -21,8 +20,10 @@ that should be used to define error codes::
 		description='my default error code'
 	)
 
-Once this code is defined it can be registered which makes the error code
-available via a single class ``ListErrors``::
+Register an error code
+----------------------
+Once the error code is defined it can be registered against the ``ListErrors``
+class ::
 
 	from errors.error import ListErrors
 
@@ -31,15 +32,18 @@ available via a single class ``ListErrors``::
 	    error  = MY_DEFAULT_ERROR_CODE
 	)
 
-After registration is done the error code can be retrieved from the
- ``ListErrors`` class throughout your project.::
+Retrieving an error code
+------------------------
+After registration the error code can be retrieved from the
+ ``ListErrors`` class throughout your project::
 
 	 from errors.error import ListErrors
-
 	 error = ListErrors.MY_DEFAULT_ERROR_CODE
 
-In case you have only peristed the error code without the error description
-you can use `ListErrors` to retrieve the error description.::
+Retrieving error description
+----------------------------
+In case you have only persisted the error code without the error description
+you can use ``ListErrors`` to retrieve the error description.::
 
 	>>> from errors.error import ListErrors
 	>>> ListErrors.error_description('ERR_MYERR_0001')
@@ -47,13 +51,12 @@ you can use `ListErrors` to retrieve the error description.::
 
 Enumarator with error Codes
 ---------------------------
-
 When needed you can group a set of error codes for a specific part of your
-project::
+project by using ``FunctionalErrorsBaseClass``::
 
 	from errors.base import FunctionalErrorsBaseClass
 
-	class GetDataErrors(FunctionalErrorsBaseClass):
+	class MyErrors(FunctionalErrorsBaseClass):
 	    """Class to define enumerator with functional errors."""
 	    CONNECTIVITY_ERROR = ErrorCode(
 	        code='GD_NETW_0001',
@@ -67,8 +70,13 @@ project::
 	        code='GD_CONV_00101',
 	        description='Response contains invalid JSON')
 
-	
+Register an ErrorCodes enumerator
+---------------------------------
+This class can then be registered in one go against the ``ListErrors`` class::
 
-
+	>>> from errors.error import ListErrors
+	>>> ListErrors.register_errors(MyErrors)
+	>>> ListErrors.CONNECTIVITY_ERROR
+	ErrorCode(code='GD_NETW_0001', description='Network connectivity issues', error_data=<class 'dict'>)
 
 
