@@ -37,7 +37,6 @@ Error-manager: Managing error codes throughout you project
    :maxdepth: 2
 
    readme
-   installation
    usage
    reference/index
    contributing
