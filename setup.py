@@ -23,7 +23,7 @@ def read(*names, **kwargs):
 
 setup(
     name='error-manager',
-    version='0.1.1',
+    version='0.9.0',
     license='LGPL-3.0-or-later',
     description='Module to manage error code, descriptions and data in a unified way throughout a project',
     long_description='%s\n%s' % (
