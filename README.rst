@@ -1,20 +1,25 @@
-========
-Overview
-========
+=============
+Error Manager
+=============
+
+A lightweight implementation of a manager for error messages throughout your
+project. Allows you to easily define and register error codes and messages.
+Enable easy access to a single list of registerd error codes and messages
+throughout your project.
 
 .. start-badges
 
 .. list-table::
+    :widths: 8 50
     :stub-columns: 1
 
     * - docs
       - |docs|
     * - tests
-      - | |travis| |requires|
-        | |codecov|
+      - |travis| |requires| |codecov|
     * - package
-      - | |version| |wheel| |supported-versions| |supported-implementations|
-        | |commits-since|
+      - |version| |wheel| |supported-versions| |commits-since|
+  
 .. |docs| image:: https://readthedocs.org/projects/errors/badge/?style=flat
     :target: https://errors.readthedocs.io/
     :alt: Documentation Status
@@ -55,7 +60,6 @@ Overview
 
 .. end-badges
 
-Module to manage error code, descriptions and data in a unified way throughout a project
 
 * Free software: GNU Lesser General Public License v3 or later (LGPLv3+)
 
@@ -68,36 +72,10 @@ Installation
 
 You can also install the in-development version with::
 
-    pip install https://github.com/MaartendeRuyter/error-manager/archive/master.zip
+    pip install https://github.com/MaartendeRuyter/errors/archive/master.zip
 
 
 Documentation
 =============
 
-
 https://errors.readthedocs.io/
-
-
-Development
-===========
-
-To run all the tests run::
-
-    tox
-
-Note, to combine the coverage data from all the tox environments run:
-
-.. list-table::
-    :widths: 10 90
-    :stub-columns: 1
-
-    - - Windows
-      - ::
-
-            set PYTEST_ADDOPTS=--cov-append
-            tox
-
-    - - Other
-      - ::
-
-            PYTEST_ADDOPTS=--cov-append tox

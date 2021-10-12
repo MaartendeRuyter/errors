@@ -11,14 +11,24 @@ class ListErrors():
         return cls
 
     @classmethod
+    def register_error(cls, error_key: str, error: ErrorCode) -> None:
+        """Class method to register a single error key with error code."""
+        if not isinstance(error, ErrorCode):
+            raise ValueError(
+                'provided error is not of type ErrorCode')
+        cls._errors.update({error.code: error.description})
+        setattr(cls, error_key, error)
+
+    @classmethod
     def register_errors(cls, errors: FunctionalErrorsBaseClass) -> None:
-        """Class method to register new errors."""
+        """Class method to register new errors from enumerator."""
         if not issubclass(errors, FunctionalErrorsBaseClass):
             raise ValueError(
                 'provide errors are not of type FunctionalErrorsBaseClass')
-        for key in errors.keys():
-            error = errors[key].value
-            cls._errors.update({error.code: error.description})
+        for error_key in errors.keys():
+            error = errors[error_key].value
+            cls.register_error(
+                error_key=error_key, error=error)
 
     @classmethod
     def error_description(cls, error_code: str) -> str:

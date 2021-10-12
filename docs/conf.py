@@ -20,7 +20,7 @@ project = 'errors'
 year = '2021'
 author = 'Maarten de Ruyter'
 copyright = '{0}, {1}'.format(year, author)
-version = release = '0.1.0'
+version = release = '0.9.0'
 
 pygments_style = 'trac'
 templates_path = ['.']
