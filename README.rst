@@ -48,10 +48,6 @@ throughout your project.
     :alt: Supported versions
     :target: https://pypi.org/project/error-manager
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/errors-manager.svg
-    :alt: Supported implementations
-    :target: https://pypi.org/project/error-manager
-
 .. |commits-since| image:: https://img.shields.io/github/commits-since/MaartendeRuyter/errors/v0.1.0.svg
     :alt: Commits since latest release
     :target: https://github.com/MaartendeRuyter/errors/compare/v0.1.0...master
