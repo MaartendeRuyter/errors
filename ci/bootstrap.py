@@ -1,15 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import absolute_import, print_function, unicode_literals
 
 import os
 import sys
-from os.path import abspath
-from os.path import dirname
-from os.path import exists
-from os.path import join
+from os.path import abspath, dirname, exists, join
 from subprocess import check_call as subprocess_check_call
 from subprocess import check_output
 

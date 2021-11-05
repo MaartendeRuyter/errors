@@ -4,13 +4,9 @@
 import io
 import re
 from glob import glob
-from os.path import basename
-from os.path import dirname
-from os.path import join
-from os.path import splitext
+from os.path import basename, dirname, join, splitext
 
-from setuptools import find_packages
-from setuptools import setup
+from setuptools import find_packages, setup
 
 
 def read(*names, **kwargs):
@@ -23,7 +19,7 @@ def read(*names, **kwargs):
 
 setup(
     name='error-manager',
-    version='1.0.0',
+    version='1.1.0',
     license='LGPL-3.0-or-later',
     description='Module to manage error code, descriptions and data in a unified way throughout a project',
     long_description='%s\n%s' % (

@@ -24,3 +24,9 @@ Changelog
 
 * Added Documentation and removed more default but redundant Documentation
 * Added reference documentation for ``ListErrors`` and ``base`` module   
+
+1.1.0 (2021-11-05)
+------------------
+
+* Added is_error method to check if an object is an instance of
+  (sub)class ``ErrorCode``

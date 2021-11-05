@@ -1,9 +1,7 @@
 """Module to provide test methods for errors.error module."""
 import pytest
 
-from errors.base import BaseEnumerator
-from errors.base import ErrorCode
-from errors.base import ErrorsClassErrors
+from errors.base import BaseEnumerator, ErrorCode, ErrorsClassErrors, is_error
 from errors.cli import main
 from errors.error import ListErrors
 
@@ -59,3 +57,28 @@ def test_error_description_retrieved_for_existing_error_code():
     description = ListErrors.error_description(error_code='ER_GETERROR_00001')
     assert ErrorsClassErrors.COULD_NOT_FIND_ERROR_CODE.value.description == \
         description
+
+
+def test_is_error_returns_false():
+    """
+    Test is_error method returns False if error is not an instance off
+    ErrorCode or subclass of ErrorCode.
+    """
+    assert not is_error('1')
+
+
+def test_is_error_returns_true():
+    """
+    Test is_error method returns True if error is an instance of ErrorCode.
+    """
+    assert is_error(ErrorCode('code', 'description'))
+
+
+def test_is_error_returns_true_on_error_code_sub_class():
+    """
+    Test is_error method returns True if error is an instance of ErrorCode.
+    """
+    class ErrorCodeSubClass(ErrorCode):
+        pass
+
+    assert is_error(ErrorCodeSubClass('code', 'description'))

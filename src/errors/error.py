@@ -1,7 +1,5 @@
 """Module to define ListErrors class."""
-from errors.base import ErrorCode
-from errors.base import ErrorsClassErrors
-from errors.base import FunctionalErrorsBaseClass
+from errors.base import ErrorCode, ErrorsClassErrors, FunctionalErrorsBaseClass
 
 
 class ListErrors():
