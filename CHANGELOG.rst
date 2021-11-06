@@ -30,3 +30,9 @@ Changelog
 
 * Added is_error method to check if an object is an instance of
   (sub)class ``ErrorCode``
+
+1.1.1 (2021-11-06)
+------------------
+
+* Import ``ListErrors``, ``ErrorCode``, ``add_error_data()`` and ``is_error()``
+  in ``errors`` ``__init__.py`` so that they can be directly imported from ``errors`` module

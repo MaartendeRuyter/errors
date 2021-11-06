@@ -18,6 +18,11 @@ class ErrorCode():
     error_data: dict = dict
 
 
+def is_error(error: Union[ErrorCode, Any]) -> bool:
+    """Method to check in object is an instance of ErrorCode."""
+    return issubclass(error.__class__, ErrorCode)
+
+
 def add_error_data(error: ErrorCode, error_data: dict) -> ErrorCode:
     """Method to add error_data to and error object.
 
@@ -62,8 +67,3 @@ class ErrorsClassErrors(FunctionalErrorsBaseClass):
     COULD_NOT_FIND_ERROR_CODE = ErrorCode(
         code='ER_GETERROR_00001',
         description='Could not find requested error code')
-
-
-def is_error(error: Union[ErrorCode, Any]) -> bool:
-    """Method to check in object is an instance of ErrorCode."""
-    return issubclass(error.__class__, ErrorCode)
