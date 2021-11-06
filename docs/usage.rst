@@ -36,7 +36,7 @@ class using ``register_error()`` ::
 Retrieving an error code
 ------------------------
 After registration the ``ErrorCode`` instance be retrieved from the
- ``ListErrors`` class using the ``error_key`` throughout your project::
+``ListErrors`` class using the ``error_key`` throughout your project::
 
 	 from errors import ListErrors
 	 error = ListErrors.MY_DEFAULT_ERROR_CODE
@@ -82,7 +82,8 @@ using class method ``register_errors()``::
 	>>> from errors import ListErrors
 	>>> ListErrors.register_errors(MyErrors)
 	>>> ListErrors.CONNECTIVITY_ERROR
-	ErrorCode(code='GD_NETW_0001', description='Network connectivity issues', error_data=<class 'dict'>)
+	ErrorCode(code='GD_NETW_0001', description='Network connectivity issues',
+	error_data=<class 'dict'>)
 
 
 Adding data to the error
@@ -96,7 +97,8 @@ When specific data needs to be added to the error you can use
 		error=the_error,
 		error_data={'url_called': 'www.url.com'})
 	>>> the_error
-	ErrorCode(code='GD_RESP_0004', description='URL returned unexpected 404 response', error_data={'url_called': 'www.url.com'})
+	ErrorCode(code='GD_RESP_0004', description='URL returned unexpected 404
+	response', error_data={'url_called': 'www.url.com'})
 
 
 Check if an object is of (sub)class ErrorCode

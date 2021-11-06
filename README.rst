@@ -76,7 +76,7 @@ Error manager provides you with a ``ListErrors`` class to retrieve your
 custom error codes and descriptions throughout your project::
 
     # retrieve customer defined ErrorCode object form ``ListErrors`` class
-    >>> from errors.error import ListErrors
+    >>> from errors import ListErrors
     >>> error = ListErrors.COULD_NOT_FIND_ERROR_CODE
     >>> error
     ErrorCode(code='ER_GETERROR_00001', description='Could not find requested 
@@ -84,7 +84,7 @@ custom error codes and descriptions throughout your project::
     
     # add custom error data to error message when you want to persist or log
     # the error
-    >>> from errors.base import add_error_data   
+    >>> from errors import add_error_data   
     >>> error_with_data = add_error_data(error, {'key': 'Example error data'})
     >>> error_with_data 
     ErrorCode(code='ER_GETERROR_00001', description='Could not find requested error code', error_data={'key': 'Example error data'})
