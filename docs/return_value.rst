@@ -1,0 +1,86 @@
+===========
+ReturnValue
+===========
+The ``ReturnValue`` class provides a data structure that allows you to
+standardize the return value between classes and/or methods with the inclusion
+of status and error information. Error information in the ``ReturnValue``
+instance should always be in de the for of an ``ErrorCode``.  
+
+Using the ReturnValue instance allows you to unify the way the result status
+of a return object is communicated throughout the chain of classes in your
+project. Also the errors that were collected in lower level classes are
+communicated throughout the chain of your classes. This is especially usefull
+when you want a top level class to be able to report on errors that are created
+in one or more of the lower level classes. 
+
+This setup was created with datapipelines in mind where the error can occur in
+many different places in the pipeline and the pipeline might even return multiple errors.
+
+
+Returning a ReturnValue instance
+--------------------------------
+Assume you have a method or a class that returns a data object. Evaluation of
+the validaty of that data object should be done within that method. However the
+result of that evevaluation needs to be propogated to the requesting method.
+For this purpose you can use the ``ReturnValueWithStatus`` class. 
+This allows you to always an instance of ``ReturnValueWithStatus`` which
+contains information about the validatity of the data object as well as any thereturn the same type of object as with information on  ::
+
+    from errors import ErrorCode, ReturnValueWithStatus
+
+    result_is_none_error = ErrorCode(
+	    code='GET_RESULT_0001',
+	    description='Result is None')
+
+
+	def get_result() -> ReturnValueWithStatus:
+        """
+        Method to retrieve a result object and return the result in a
+        ReturnValueWithStatus instance.
+
+        If retrieved result is None an error is added to the
+        ReturnValueWithStatus object.
+        """
+        result_with_status = ReturnValueWithStatus(
+            result=get_some_result())
+
+        if result_with_status.result is None:
+            result_with_status.add_error(result_is_none_error)
+
+        return result_with_status
+
+
+Validaty of ReturnValueWithStatus instance
+------------------------------------------
+``ReturnValueWithStatus`` instances contain a status via the is_valid property.
+By default the status is ``True`` when no errors are attached to the instance.::
+
+    >>> from errors import ReturnValueWithStatus
+    >>> ReturnValueWithStatus().is_valid
+    True
+
+If an error is added the is_valid status will automatically change to ``False``.
+::
+
+    >>> from errors import ReturnValueWithStatus
+    >>> return_value = ReturnValueWithStatus()
+    >>> return_value.add_error(error)
+    >>> return_value.is_valid
+    False
+
+If in some cases you would like the status not to be changed when you are adding
+an error. You can do this by using the keep_current_status parameter when adding
+the error. As the name suggest in this case the already existing status is kept.
+::
+
+    >>> from errors import ReturnValueWithStatus
+    >>> return_value = ReturnValueWithStatus()
+    >>> return_value.add_error(error1, keep_current_status=True)
+    >>> return_value.is_valid
+    True
+    >>> return_value.add_error(error2)
+    >>> return_value.is_valid
+    False
+    >>> return_value.add_error(error3, keep_current_status=True)
+    >>> return_value.is_valid
+    False
