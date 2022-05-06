@@ -80,6 +80,7 @@ register custom error codes for your project
    :maxdepth: 2
 
    usage
+   return_value
    reference/index
    contributing
    authors
