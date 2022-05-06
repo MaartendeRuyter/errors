@@ -36,3 +36,10 @@ Changelog
 
 * Import ``ListErrors``, ``ErrorCode``, ``add_error_data()`` and ``is_error()``
   in ``errors`` ``__init__.py`` so that they can be directly imported from ``errors`` module
+
+1.2.0 (2022-05-06)
+------------------
+
+* Added a dataclass ``ReturnValueWithStatus`` to allow consuming classes and
+  methods to return a single return type with result, status and errors
+  collected in one Object
