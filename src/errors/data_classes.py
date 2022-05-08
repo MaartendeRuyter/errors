@@ -13,13 +13,9 @@ class ReturnValueWithStatus():
     errors from error class.
 
     """
-    _result: Any = None
+    result: Any = None
     _is_valid: bool = True
     _errors: List[ErrorCode] = field(default_factory=list)
-
-    @property
-    def result(self):
-        return self._result
 
     @property
     def errors(self):
@@ -33,11 +29,28 @@ class ReturnValueWithStatus():
         """Add and error to the return value instance.
 
         Args:
-            error (ErrorCode): _description_
+            error (ErrorCode): Error to be added
             keep_current_status (bool, optional):
-                Will . Defaults to False.
+                Will keep the is_valid status inchanged if set to True.
+                Defaults to False.
         """
         self._errors.append(error)
 
         if not keep_current_status:
             self._is_valid = False
+
+
+class ReturnValueWithErrorStatus():
+    """Class to easuly define a ReturnValue with an errorcode.
+
+    Should be used like:
+    ReturnValueWithErrorStatus(error=predefined_error_code)
+
+    returns an instance of ReturnValueWithStatus with predefined_error_code
+    added to the error list.
+    """
+
+    def __new__(cls, error):
+        return_value = ReturnValueWithStatus()
+        return_value.add_error(error)
+        return return_value

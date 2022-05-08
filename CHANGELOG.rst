@@ -43,3 +43,9 @@ Changelog
 * Added a dataclass ``ReturnValueWithStatus`` to allow consuming classes and
   methods to return a single return type with result, status and errors
   collected in one Object
+
+1.2.1 (2022-05-08)
+------------------
+
+* Added a class ``ReturnValueWithErrorStatus`` to easily create
+  ``ReturnValueWithStatus`` with a error attached to it.

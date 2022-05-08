@@ -84,3 +84,27 @@ the error. As the name suggest in this case the already existing status is kept.
     >>> return_value.add_error(error3, keep_current_status=True)
     >>> return_value.is_valid
     False
+
+
+ReturnValueWithErrorStatus
+--------------------------
+When returning a ``ReturnValueWithStatus`` instance there will be situations
+where you want to return default errors. These can be made with the 
+``ReturnValueWithStatus`` but you van make this process less verbose by using
+the ``ReturnValueWithErrorStatus`` class.::
+
+    from errors import ReturnValueWithErrorStatus, ReturnValueWithStatus
+    
+    class MyPipeline():
+        def get_data(self): 
+            data = self.provide_data()
+            if data is None:
+                return ReturnValueWithErrorStatus(
+                    error=error_code_result_is_none)
+            
+            return ReturnValueWithStatus(result=data)
+
+
+``ReturnValueWithErrorStatus`` takes an error and returns a
+``ReturnValueWithStatus`` with invalid status and provided error added to its
+error list.

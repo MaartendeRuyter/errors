@@ -20,7 +20,7 @@ project = 'errors'
 year = '2021'
 author = 'Maarten de Ruyter'
 copyright = '{0}, {1}'.format(year, author)
-version = release = '1.2.0'
+version = release = '1.2.1'
 
 pygments_style = 'trac'
 templates_path = ['.']
@@ -38,7 +38,7 @@ html_use_smartypants = True
 html_last_updated_fmt = '%b %d, %Y'
 html_split_index = False
 html_sidebars = {
-   '**': ['searchbox.html', 'globaltoc.html', 'sourcelink.html'],
+    '**': ['searchbox.html', 'globaltoc.html', 'sourcelink.html'],
 }
 html_short_title = '%s-%s' % (project, version)
 

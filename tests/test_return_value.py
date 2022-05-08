@@ -3,12 +3,18 @@ Module to provide test methods for ReturnValue dataclass of the errors module.
 """
 # import pytest
 from errors.base import ErrorCode
-from errors.data_classes import ReturnValueWithStatus
+from errors.data_classes import ReturnValueWithErrorStatus, \
+    ReturnValueWithStatus
 
 
 def test_return_value_with_status_class_exists():
-    """Ensure ErrorsClassErrors class exists."""
+    """Ensure from ReturnValueWithStatus class exists."""
     assert ReturnValueWithStatus
+
+
+def test_return_value_with_error_status_class_exists():
+    """Ensure ReturnValueWithErrorStatus class exists."""
+    assert ReturnValueWithErrorStatus
 
 
 def test_return_value_with_status_has_result_attribute():
@@ -68,4 +74,16 @@ def test_return_value_remains_invalid_with_keep_current_status_set_to_true():
     return_value.add_error(error1)
     assert not return_value.is_valid
     return_value.add_error(error2, keep_current_status=True)
+    assert not return_value.is_valid
+
+
+def test_return_value_with_error_status_returns_error_value():
+    """
+    Test that ReturnValueWithErrorStatus returns a ReturnValueWithErrorStatus
+    instance with an error and status invalid.
+    """
+    error = ErrorCode(code='TEST1', description='desc')
+    return_value = ReturnValueWithErrorStatus(error)
+    assert isinstance(return_value, ReturnValueWithStatus)
+    assert error in return_value._errors
     assert not return_value.is_valid
