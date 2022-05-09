@@ -49,3 +49,8 @@ Changelog
 
 * Added a class ``ReturnValueWithErrorStatus`` to easily create
   ``ReturnValueWithStatus`` with a error attached to it.
+
+1.2.2 (2022-05-09)
+------------------
+
+* Added ``ReturnValueWithErrorStatus`` to __init__ for easy import.
