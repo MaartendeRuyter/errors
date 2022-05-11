@@ -3,6 +3,8 @@
 from dataclasses import dataclass, field
 from typing import Any, List
 
+import errors.settings as st
+
 from .base import ErrorCode
 
 
@@ -51,6 +53,8 @@ class ReturnValueWithErrorStatus():
     """
 
     def __new__(cls, error):
+        if not isinstance(error, ErrorCode):
+            raise TypeError(st.EXC_ERROR_NOT_OF_ERROR_CODE_TYPE)
         return_value = ReturnValueWithStatus()
         return_value.add_error(error)
         return return_value

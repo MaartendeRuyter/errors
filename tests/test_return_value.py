@@ -1,7 +1,8 @@
 """
 Module to provide test methods for ReturnValue dataclass of the errors module.
 """
-# import pytest
+import pytest
+
 from errors.base import ErrorCode
 from errors.data_classes import ReturnValueWithErrorStatus, \
     ReturnValueWithStatus
@@ -87,3 +88,13 @@ def test_return_value_with_error_status_returns_error_value():
     assert isinstance(return_value, ReturnValueWithStatus)
     assert error in return_value._errors
     assert not return_value.is_valid
+
+
+def test_return_value_with_error_status_raises_type_error():
+    """
+    Test that ReturnValueWithErrorStatus returns a TypeError when
+    the provided error is not of type ErrorCode.
+    """
+    error = 'not an ErrorCode instance'
+    with pytest.raises(TypeError):
+        ReturnValueWithErrorStatus(error)
