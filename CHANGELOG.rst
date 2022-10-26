@@ -54,3 +54,7 @@ Changelog
 ------------------
 
 * Added ``ReturnValueWithErrorStatus`` to __init__ for easy import.
+
+1.2.4 (2022-10-26)
+------------------
+* Added support for python 3.11
