@@ -9,21 +9,25 @@ env:
     - LANG=en_US.UTF-8
 matrix:
   include:
-    - python: '3.7'
+    - python: '3.11'
       env:
         - TOXENV=check
-    - python: '3.7'
+    - python: '3.11'
       env:
         - TOXENV=docs
-    - env:
-        - TOXENV=py37,codecov
-      python: '3.7'
     - env:
         - TOXENV=py38,codecov
       python: '3.8'
     - env:
         - TOXENV=py39,codecov
       python: '3.9'
+    - env:
+        - TOXENV=py310,codecov
+      python: '3.10'
+    - env:
+        - TOXENV=py311,codecov
+      python: '3.11'
+
 before_install:
   - python --version
   - uname -a
