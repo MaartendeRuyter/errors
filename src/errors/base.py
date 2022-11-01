@@ -5,9 +5,9 @@ enumerators:
     - BaseEnumerator
     - FunctionalErrorsBaseClass
 """
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, Union
+from typing import Any, Union, Dict
 
 
 @dataclass(frozen=True)
@@ -15,7 +15,7 @@ class ErrorCode():
     """Immutable dataclass to define error codes."""
     code: str
     description: str
-    error_data: dict = dict
+    error_data: Dict = field(default_factory=dict)
 
 
 def is_error(error: Union[ErrorCode, Any]) -> bool:

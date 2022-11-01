@@ -20,14 +20,15 @@ class ReturnValueWithStatus():
     _errors: List[ErrorCode] = field(default_factory=list)
 
     @property
-    def errors(self):
+    def errors(self) -> List[ErrorCode]:
         return self._errors
 
     @property
-    def is_valid(self):
+    def is_valid(self) -> bool:
         return self._is_valid
 
-    def add_error(self, error: ErrorCode, keep_current_status: bool = False):
+    def add_error(
+            self, error: ErrorCode, keep_current_status: bool = False) -> None:
         """Add and error to the return value instance.
 
         Args:
@@ -52,7 +53,7 @@ class ReturnValueWithErrorStatus():
     added to the error list.
     """
 
-    def __new__(cls, error):
+    def __new__(cls, error: ErrorCode):
         if not isinstance(error, ErrorCode):
             raise TypeError(st.EXC_ERROR_NOT_OF_ERROR_CODE_TYPE)
         return_value = ReturnValueWithStatus()

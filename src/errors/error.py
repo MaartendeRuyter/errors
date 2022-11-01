@@ -4,7 +4,7 @@ from errors.base import ErrorCode, ErrorsClassErrors, FunctionalErrorsBaseClass
 
 class ListErrors():
     """Singleton Class for registering and retrieving error codes"""
-    _errors = {}
+    _errors: dict[str, str] = {}
 
     def __new__(cls):
         return cls
@@ -19,7 +19,7 @@ class ListErrors():
         setattr(cls, error_key, error)
 
     @classmethod
-    def register_errors(cls, errors: FunctionalErrorsBaseClass) -> None:
+    def register_errors(cls, errors: type[FunctionalErrorsBaseClass]) -> None:
         """Class method to register new errors from enumerator."""
         if not issubclass(errors, FunctionalErrorsBaseClass):
             raise ValueError(
