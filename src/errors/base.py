@@ -7,7 +7,7 @@ enumerators:
 """
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, Union, Dict
+from typing import Any, Dict, Union
 
 
 @dataclass(frozen=True)
