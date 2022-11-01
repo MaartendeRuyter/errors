@@ -1,10 +1,12 @@
 """Module to define ListErrors class."""
+from typing import Dict, Type
+
 from errors.base import ErrorCode, ErrorsClassErrors, FunctionalErrorsBaseClass
 
 
 class ListErrors():
     """Singleton Class for registering and retrieving error codes"""
-    _errors: dict[str, str] = {}
+    _errors: Dict[str, str] = {}
 
     def __new__(cls):
         return cls
@@ -19,7 +21,7 @@ class ListErrors():
         setattr(cls, error_key, error)
 
     @classmethod
-    def register_errors(cls, errors: type[FunctionalErrorsBaseClass]) -> None:
+    def register_errors(cls, errors: Type[FunctionalErrorsBaseClass]) -> None:
         """Class method to register new errors from enumerator."""
         if not issubclass(errors, FunctionalErrorsBaseClass):
             raise ValueError(
