@@ -1,9 +1,20 @@
 """
-Module to define enumerators for get_data module
+Module to define the ErrorCode class and methods as well als the
+FunctionalErrorsBaseClass enumerator
 
-enumerators:
-    - BaseEnumerator
-    - FunctionalErrorsBaseClass
+dataclass ErrorCode
+-------------------
+
+This data class defines the dedault error object that you can use
+throughout your project. It contains the following attributes
+
+- code (str) : the error code. Advice to make this code self
+               explanatory using a naming convention
+- description (str) : the error description
+
+enumerator FunctionalErrorsBaseClass
+------------------------------------
+
 """
 from dataclasses import dataclass, field
 from enum import Enum
@@ -55,7 +66,13 @@ class BaseEnumerator(Enum):
 
 class FunctionalErrorsBaseClass(BaseEnumerator):
     """
-    Abstract class to define custom error code and message.
+    Abstract enumerator for custom error codes
+    Use this base class to define a set of custom error codes for your project.
+
+    These errors can then be registered in one go.
+
+    >>> from errors import ListErrors
+    >>> ListErrors.register_errors(YourErrors)
     """
     pass
 
