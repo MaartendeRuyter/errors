@@ -5,16 +5,26 @@ FunctionalErrorsBaseClass enumerator
 dataclass ErrorCode
 -------------------
 
-This data class defines the dedault error object that you can use
-throughout your project. It contains the following attributes
+This data class defines the default error object that you can use
+throughout your project. Objects of this data class are immutable.
+An ErrorCode instance contains the following attributes
 
 - code (str) : the error code. Advice to make this code self
                explanatory using a naming convention
 - description (str) : the error description
+- error_data (dict) : Optional dict to provide more details for a specific instance of the error
+
+method is_error
+---------------
+Method to check if an object represents an ErrorCode
+
+method add_error_data
+---------------------
+This method returns a new ErrorCode object with added error data.
 
 enumerator FunctionalErrorsBaseClass
 ------------------------------------
-
+Enumerator class that can be used to add errors and the register these error againts
 """
 from dataclasses import dataclass, field
 from enum import Enum
@@ -30,7 +40,14 @@ class ErrorCode():
 
 
 def is_error(error: Union[ErrorCode, Any]) -> bool:
-    """Method to check in object is an instance of ErrorCode."""
+    """Method to check in object is an instance of ErrorCode.
+
+    :param error: error code object
+    :type error: Union[ErrorCode, Any]
+    :return:True if provided error is of tyoe ErrorCode
+    :rtype: bool
+    """
+
     return issubclass(error.__class__, ErrorCode)
 
 
@@ -41,7 +58,8 @@ def add_error_data(error: ErrorCode, error_data: dict) -> ErrorCode:
     :type error: ErrorCode
     :param error_data: error data to be added to error code
     :type error_data: dict
-    :returns:  ErrorCode -- New ErrorCode object with error_data added
+    :return: ErrorCode -- New ErrorCode object with error_data added
+    :rtype: ErrorCode
     """
     return ErrorCode(
         code=error.code,

@@ -22,7 +22,12 @@ class ListErrors():
 
     @classmethod
     def register_errors(cls, errors: Type[FunctionalErrorsBaseClass]) -> None:
-        """Class method to register new errors from enumerator."""
+        """Register list of errors defined in a FunctionalErrorsBaseClass
+
+        :param errors: The class containg the errors (not an instance of that class)
+        :type errors: Type[FunctionalErrorsBaseClass]
+        :raises ValueError: raises ValueError when 
+        """
         if not issubclass(errors, FunctionalErrorsBaseClass):
             raise ValueError(
                 'provide errors are not of type FunctionalErrorsBaseClass')
