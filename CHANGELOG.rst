@@ -2,6 +2,14 @@
 Changelog
 =========
 
+1.3.2 (2023-10-23)
+------------------
+* Added support for python 3.12
+
+1.3.1 (2023-10-20)
+------------------
+* Refactored setup.cfg and pyproject.toml
+
 1.3.0 (2022-11-01)
 ------------------
 * Added type annotations 

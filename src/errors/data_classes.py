@@ -9,12 +9,13 @@ from .base import ErrorCode
 
 
 @dataclass
-class ReturnValueWithStatus():
+class ReturnValueWithStatus:
     """
     Dataclass to define an object for returning results including status and
     errors from error class.
 
     """
+
     result: Any = None
     _is_valid: bool = True
     _errors: List[ErrorCode] = field(default_factory=list)
@@ -27,8 +28,7 @@ class ReturnValueWithStatus():
     def is_valid(self) -> bool:
         return self._is_valid
 
-    def add_error(
-            self, error: ErrorCode, keep_current_status: bool = False) -> None:
+    def add_error(self, error: ErrorCode, keep_current_status: bool = False) -> None:
         """Add and error to the return value instance.
 
         Args:
@@ -43,7 +43,7 @@ class ReturnValueWithStatus():
             self._is_valid = False
 
 
-class ReturnValueWithErrorStatus():
+class ReturnValueWithErrorStatus:
     """Class to easuly define a ReturnValue with an errorcode.
 
     Should be used like:

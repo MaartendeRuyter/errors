@@ -32,8 +32,9 @@ from typing import Any, Dict, Union
 
 
 @dataclass(frozen=True)
-class ErrorCode():
+class ErrorCode:
     """Immutable dataclass to define error codes."""
+
     code: str
     description: str
     error_data: Dict = field(default_factory=dict)
@@ -62,9 +63,8 @@ def add_error_data(error: ErrorCode, error_data: dict) -> ErrorCode:
     :rtype: ErrorCode
     """
     return ErrorCode(
-        code=error.code,
-        description=error.description,
-        error_data=error_data)
+        code=error.code, description=error.description, error_data=error_data
+    )
 
 
 class BaseEnumerator(Enum):
@@ -92,6 +92,7 @@ class FunctionalErrorsBaseClass(BaseEnumerator):
     >>> from errors import ListErrors
     >>> ListErrors.register_errors(YourErrors)
     """
+
     pass
 
 
@@ -99,6 +100,7 @@ class ErrorsClassErrors(FunctionalErrorsBaseClass):
     """
     Class to define enumerator errors for Error module
     """
+
     COULD_NOT_FIND_ERROR_CODE = ErrorCode(
-        code='ER_GETERROR_00001',
-        description='Could not find requested error code')
+        code="ER_GETERROR_00001", description="Could not find requested error code"
+    )

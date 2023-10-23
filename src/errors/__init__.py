@@ -1,5 +1,5 @@
 """init file errors module."""
-__version__ = '1.3.0'
+__version__ = "1.3.0"
 
 from errors.base import add_error_data, is_error  # noqa F401
 from errors.data_classes import ReturnValueWithErrorStatus  # noqa F401
