@@ -1,11 +1,14 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+# Configuration file for the Sphinx documentation builder.
+#
+# For the full list of built-in configuration values, see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-import os
+# -- Project information -----------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
+    # 'sphinx.ext.autodoc',
+    # 'sphinx.ext.autosummary',
     'sphinx.ext.coverage',
     'sphinx.ext.doctest',
     'sphinx.ext.extlinks',
@@ -16,32 +19,36 @@ extensions = [
 ]
 source_suffix = '.rst'
 master_doc = 'index'
-project = 'errors'
-year = '2021'
+
+project = 'error manager'
+copyright = '2024, Maarten de Ruyter'
 author = 'Maarten de Ruyter'
-copyright = '{0}, {1}'.format(year, author)
-version = release = '1.2.4'
+release = '1.3.3'
 
-pygments_style = 'trac'
-templates_path = ['.']
-extlinks = {
-    'issue': ('https://github.com/MaartendeRuyter/errors/issues/%s', '#'),
-    'pr': ('https://github.com/MaartendeRuyter/errors/pull/%s', 'PR #'),
-}
-# on_rtd is whether we are on readthedocs.org
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+# -- General configuration ---------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-if not on_rtd:  # only set the theme if we're building docs locally
-    html_theme = 'sphinx_rtd_theme'
+extensions = []
 
-html_use_smartypants = True
+templates_path = ['_templates']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+
+
+
+# -- Options for HTML output -------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+
+html_theme = 'sphinx_rtd_theme'
+html_static_path = ['_static']
+
 html_last_updated_fmt = '%b %d, %Y'
 html_split_index = False
 html_sidebars = {
     '**': ['searchbox.html', 'globaltoc.html', 'sourcelink.html'],
 }
-html_short_title = '%s-%s' % (project, version)
+html_short_title = '%s-%s' % (project, release)
 
 napoleon_use_ivar = True
 napoleon_use_rtype = False
 napoleon_use_param = False
+

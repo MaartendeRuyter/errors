@@ -78,6 +78,7 @@ register custom error codes for your project
 
 .. toctree::
    :maxdepth: 2
+   :caption: Contents:
 
    usage
    return_value
