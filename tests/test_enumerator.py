@@ -1,4 +1,5 @@
 """Module to provide test methods for errors.enumerator module."""
+
 import pytest
 
 from errors.base import BaseEnumerator, ErrorCode, ErrorsClassErrors, add_error_data

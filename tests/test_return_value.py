@@ -1,6 +1,7 @@
 """
 Module to provide test methods for ReturnValue dataclass of the errors module.
 """
+
 import pytest
 
 from errors.base import ErrorCode
