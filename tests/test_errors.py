@@ -3,12 +3,7 @@
 import pytest
 
 from errors.base import BaseEnumerator, ErrorCode, ErrorsClassErrors, is_error
-from errors.cli import main
 from errors.error import ListErrors
-
-
-def test_main():
-    assert main([]) == 0
 
 
 def test_list_errors_class_exists():

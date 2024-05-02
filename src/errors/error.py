@@ -1,4 +1,5 @@
 """Module to define ListErrors class."""
+
 from typing import Dict, Type
 
 from errors.base import ErrorCode, ErrorsClassErrors, FunctionalErrorsBaseClass
