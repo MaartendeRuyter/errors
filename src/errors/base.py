@@ -26,6 +26,7 @@ enumerator FunctionalErrorsBaseClass
 ------------------------------------
 Enumerator class that can be used to add errors and the register these error againts
 """
+
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import Any, Dict, Union
