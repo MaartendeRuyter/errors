@@ -23,7 +23,7 @@ master_doc = 'index'
 project = 'error manager'
 copyright = '2024, Maarten de Ruyter'
 author = 'Maarten de Ruyter'
-release = '1.3.3'
+release = '1.3.4'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
