@@ -49,7 +49,7 @@ Managing error codes throughout you project
 error-manager main use cases
 ----------------------------
 Main use case for the error-manager package is to implement a ``ListErrors`` class that can be used throughout 
-your project to define and access standard error codes and descriptions ::
+your project to define and access immutable standard error codes and descriptions ::
 
     # retrieve customer defined ErrorCode object form ``ListErrors`` class
     >>> from errors.error import ListErrors
@@ -60,6 +60,7 @@ your project to define and access standard error codes and descriptions ::
         error_data={})
     
     # add custom error data to error message when you want to persist or log the error
+    # As the errorcode are immutable the add_error_data returns a new error (immutable) error code. 
     >>> from errors.base import add_error_data
     >>> error_without_data = ListErrors.API_GET_RETURNED_404
     >>> error_with_data = add_error_data(error_without_data, {'url': 'www.bad_url.com'})
