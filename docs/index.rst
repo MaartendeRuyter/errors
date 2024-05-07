@@ -61,17 +61,23 @@ Managing error codes throughout you project
 
     # retrieve customer defined ErrorCode object form ``ListErrors`` class
     >>> from errors.error import ListErrors
-    >>> error = ListErrors.COULD_NOT_FIND_ERROR_CODE
+    >>> error = ListErrors.API_GET_RETURNED_404
     >>> error
-    ErrorCode(code='ER_GETERROR_00001', description='Could not find requested 
-    error code', error_data=<class 'dict'>)
+    ErrorCode(code='ER_API404_00001', description='API get request returned 404', error_data=<class 'dict'>)
     
-    # add custom error data to error message when you want to persist or log
-    # the error
-    >>> from errors.base import add_error_data   
-    >>> error_with_data = add_error_data(error, {'key': 'Example error data'})
+    # add custom error data to error message when you want to persist or log the error
+    >>> from errors.base import add_error_data
+    >>> error_without_data = ListErrors.API_GET_RETURNED_404
+    >>> error_with_data = add_error_data(error_without_data, {'url': 'www.bad_url.com'})
     >>> error_with_data 
-    ErrorCode(code='ER_GETERROR_00001', description='Could not find requested error code', error_data={'key': 'Example error data'})
+    ErrorCode(code='ER_API404_00001', description='API get request returned 404', error_data={'url': 'www.bad_url.com'})
+    
+    # This ErrorCode could be returned by the method performing the request so that
+    # the logic calling this method is aware of the failing request.
+    
+    # In order to use a single type as return value the error-manager package introduces a `ReturnValue` class
+    # that can hold the actual response, any possible downstream errors and the status of the return value. See 
+    # ReturnValue documentation.
     
 see :doc:`usage section <usage>` on how to create and
 register custom error codes for your project
