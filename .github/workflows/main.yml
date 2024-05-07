@@ -74,7 +74,7 @@ jobs:
       - name: Run tests
         run: tox -e ${{ matrix.python.toxenv }}
 
-    build_source_dist:
+  build_source_dist:
     name: Build source distribution
     runs-on: ubuntu-latest
     steps:
