@@ -8,4 +8,4 @@ twine
 isort
 
 #generic requirements
-click
+
