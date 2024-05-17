@@ -17,17 +17,13 @@ Managing error codes throughout you project
     * - docs
       - |docs|
     * - tests
-      - |travis| |codecov|
+      - |codecov|
     * - package
       - |version| |commits-since|
   
 .. |docs| image:: https://readthedocs.org/projects/errors/badge/?style=flat
     :target: https://errors.readthedocs.io/
     :alt: Documentation Status
-
-.. |travis| image:: https://api.travis-ci.com/MaartendeRuyter/errors.svg?branch=master
-    :alt: Travis-CI Build Status
-    :target: https://travis-ci.com/github/MaartendeRuyter/errors
 
 .. |codecov| image:: https://codecov.io/gh/MaartendeRuyter/errors/branch/master/graphs/badge.svg?branch=master
     :alt: Coverage Status
