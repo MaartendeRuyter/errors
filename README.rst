@@ -2,10 +2,11 @@
 Error Manager
 =============
 
-A lightweight implementation of a manager for error messages throughout your
-project. Allows you to easily define and register error codes and messages.
-Enable easy access to a single list of registerd error codes and messages
-throughout your project.
+
+Managing error codes throughout you project
+===========================================
+
+**Error-manager** is a simple library for Python to manage all your projects error codes.
 
 .. start-badges
 
@@ -18,7 +19,7 @@ throughout your project.
     * - tests
       - |codecov|
     * - package
-      - |version| |supported-versions| |commits-since|
+      - |version| |commits-since|
   
 .. |docs| image:: https://readthedocs.org/projects/errors/badge/?style=flat
     :target: https://errors.readthedocs.io/
@@ -32,53 +33,63 @@ throughout your project.
     :alt: PyPI Package latest release
     :target: https://pypi.org/project/error-manager
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/error-manager.svg
-    :alt: Supported versions
-    :target: https://pypi.org/project/error-manager
-
 .. |commits-since| image:: https://img.shields.io/github/commits-since/MaartendeRuyter/errors/v0.1.0.svg
     :alt: Commits since latest release
     :target: https://github.com/MaartendeRuyter/errors/compare/v0.1.0...master
 
 
+
 .. end-badges
 
 
-* Free software: GNU Lesser General Public License v3 or later (LGPLv3+)
-
-Installation
-============
-
-::
-
-    pip install error-manager
-
-You can also install the in-development version with::
-
-    pip install https://github.com/MaartendeRuyter/errors/archive/master.zip
-
-
-Main usecases
-=============
-Error manager provides you with a ``ListErrors`` class to retrieve your
-custom error codes and descriptions throughout your project::
+error-manager main use cases
+----------------------------
+Main use case for the error-manager package is to implement a ``ListErrors`` class that can be used throughout 
+your project to define and access immutable standard error codes and descriptions ::
 
     # retrieve customer defined ErrorCode object form ``ListErrors`` class
-    >>> from errors import ListErrors
-    >>> error = ListErrors.COULD_NOT_FIND_ERROR_CODE
-    >>> error
-    ErrorCode(code='ER_GETERROR_00001', description='Could not find requested 
-    error code', error_data=<class 'dict'>)
+    >>> from errors.error import ListErrors
+    >>> ListErrors.API_GET_RETURNED_404
+    ErrorCode(
+        code='ER_API404_00001',
+        description='API get request returned 404',
+        error_data={})
     
-    # add custom error data to error message when you want to persist or log
-    # the error
-    >>> from errors import add_error_data   
-    >>> error_with_data = add_error_data(error, {'key': 'Example error data'})
+    # add custom error data to error message when you want to persist or log the error
+    # As the errorcode are immutable the add_error_data returns a new error (immutable) error code. 
+    >>> from errors.base import add_error_data
+    >>> error_without_data = ListErrors.API_GET_RETURNED_404
+    >>> error_with_data = add_error_data(error_without_data, {'url': 'www.bad_url.com'})
     >>> error_with_data 
-    ErrorCode(code='ER_GETERROR_00001', description='Could not find requested error code', error_data={'key': 'Example error data'})
+    ErrorCode(
+        code='ER_API404_00001',
+        description='API get request returned 404',
+        error_data={'url': 'www.bad_url.com'})
+    
+This ErrorCode could be returned by the method performing the request so that
+the logic calling this method is aware of the failing request.
+
+In order to use a single type as return value the error-manager package introduces a `ReturnValue` class
+that can hold the actual response, any possible downstream errors and the status of the return value. See 
+ReturnValue documentation.
+    
+see :doc:`usage section <usage>` on how to create and
+register custom error codes for your project
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   usage
+   return_value
+   reference/index
+   contributing
+   authors
+   changelog
 
 
-Documentation
-=============
-
-https://errors.readthedocs.io/
+Indices and tables
+==================
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
