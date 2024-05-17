@@ -3,6 +3,7 @@ __pycache__
 
 # Geodatagarden Standards
 todo.txt
+architecture.txt
 
 # C extensions
 *.so
