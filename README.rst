@@ -16,21 +16,13 @@ throughout your project.
     * - docs
       - |docs|
     * - tests
-      - |travis| |requires| |codecov|
+      - |codecov|
     * - package
-      - |version| |wheel| |supported-versions| |commits-since|
+      - |version| |supported-versions| |commits-since|
   
 .. |docs| image:: https://readthedocs.org/projects/errors/badge/?style=flat
     :target: https://errors.readthedocs.io/
     :alt: Documentation Status
-
-.. |travis| image:: https://api.travis-ci.com/MaartendeRuyter/errors.svg?branch=master
-    :alt: Travis-CI Build Status
-    :target: https://travis-ci.com/github/MaartendeRuyter/errors
-
-.. |requires| image:: https://requires.io/github/MaartendeRuyter/errors/requirements.svg?branch=master
-    :alt: Requirements Status
-    :target: https://requires.io/github/MaartendeRuyter/errors/requirements/?branch=master
 
 .. |codecov| image:: https://codecov.io/gh/MaartendeRuyter/errors/branch/master/graphs/badge.svg?branch=master
     :alt: Coverage Status
@@ -38,10 +30,6 @@ throughout your project.
 
 .. |version| image:: https://img.shields.io/pypi/v/error-manager.svg
     :alt: PyPI Package latest release
-    :target: https://pypi.org/project/error-manager
-
-.. |wheel| image:: https://img.shields.io/pypi/wheel/error-manager.svg
-    :alt: PyPI Wheel
     :target: https://pypi.org/project/error-manager
 
 .. |supported-versions| image:: https://img.shields.io/pypi/pyversions/error-manager.svg
