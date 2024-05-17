@@ -77,7 +77,7 @@ see :doc:`usage section <usage>` on how to create and
 register custom error codes for your project
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    usage
