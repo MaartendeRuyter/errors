@@ -1,12 +1,12 @@
-===========
-ReturnValue
-===========
-The ``ReturnValue`` class provides a data structure that allows you to
+=====================
+ReturnValueWithStatus
+=====================
+The ``ReturnValueWithStatus`` class provides a data structure that allows you to
 standardize the return value between classes and/or methods with the inclusion
-of status and error information. Error information in the ``ReturnValue``
+of status and error information. Error information in the ``ReturnValueWithStatus``
 instance should always be in de the for of an ``ErrorCode``.  
 
-Using the ReturnValue instance allows you to unify the way the result status
+Using the ReturnValueWithStatus instance allows you to unify the way the result status
 of a return object is communicated throughout the chain of classes in your
 project. Also the errors that were collected in lower level classes are
 communicated throughout the chain of your classes. This is especially usefull
@@ -17,14 +17,11 @@ This setup was created with datapipelines in mind where the error can occur in
 many different places in the pipeline and the pipeline might even return multiple errors.
 
 
-Returning a ReturnValue instance
---------------------------------
+Returning a ReturnValueWithStatus instance
+------------------------------------------
 Assume you have a method or a class that returns a data object. Evaluation of
 the validaty of that data object should be done within that method. However the
 result of that evevaluation needs to be propogated to the requesting method.
-For this purpose you can use the ``ReturnValueWithStatus`` class. 
-This allows you to always an instance of ``ReturnValueWithStatus`` which
-contains information about the validatity of the data object as well as any thereturn the same type of object as with information on  ::
 
     from errors import ErrorCode, ReturnValueWithStatus
 
@@ -108,3 +105,19 @@ the ``ReturnValueWithErrorStatus`` class.::
 ``ReturnValueWithErrorStatus`` takes an error and returns a
 ``ReturnValueWithStatus`` with invalid status and provided error added to its
 error list.
+
+
+Typing the result attribute in ReturnValueWithStatus 
+----------------------------------------------------
+The result attribute can have any type depening of course on what your data method is returning.
+In order for this to work properly with the type checker you can define the type you expect from 
+the result attribute::
+
+    from errors import ReturnValueWithStatus
+    
+    my_return_value = ReturnValueWithStatus[list[dict]]
+    
+    def data_from_pipeline(self): 
+        return my_return_value(result=data_method())
+
+    # data_from_pipeline().result will be evaluated as type list[dict] by the type checker
