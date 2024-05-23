@@ -2,6 +2,10 @@
 Changelog
 =========
 
+1.4.0 (2024-05-23)
+------------------
+* Added ``ErrorListByMixin`` class to support autocompletion and type checking of your custom project errors
+
 1.3.2 (2023-10-23)
 ------------------
 * Added support for python 3.12
