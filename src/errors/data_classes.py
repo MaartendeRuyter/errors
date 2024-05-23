@@ -1,27 +1,29 @@
 """_summary_"""
 
 from dataclasses import dataclass, field
-from typing import Any, List
+from typing import Generic, Optional, TypeVar
 
 import errors.settings as st
 
 from .base import ErrorCode
 
+T = TypeVar("T")
+
 
 @dataclass
-class ReturnValueWithStatus:
+class ReturnValueWithStatus(Generic[T]):
     """
     Dataclass to define an object for returning results including status and
     errors from error class.
 
     """
 
-    result: Any = None
+    result: Optional[T] = None
     _is_valid: bool = True
-    _errors: List[ErrorCode] = field(default_factory=list)
+    _errors: list[ErrorCode] = field(default_factory=list)
 
     @property
-    def errors(self) -> List[ErrorCode]:
+    def errors(self) -> list[ErrorCode]:
         return self._errors
 
     @property
@@ -43,7 +45,7 @@ class ReturnValueWithStatus:
             self._is_valid = False
 
 
-class ReturnValueWithErrorStatus:
+class ReturnValueWithErrorStatus(ReturnValueWithStatus[T]):
     """Class to easuly define a ReturnValue with an errorcode.
 
     Should be used like:
@@ -56,6 +58,6 @@ class ReturnValueWithErrorStatus:
     def __new__(cls, error: ErrorCode):
         if not isinstance(error, ErrorCode):
             raise TypeError(st.EXC_ERROR_NOT_OF_ERROR_CODE_TYPE)
-        return_value = ReturnValueWithStatus()
+        return_value = ReturnValueWithStatus[T]()
         return_value.add_error(error)
         return return_value

@@ -41,7 +41,7 @@ def test_is_valid_attribute_is_true_if_there_are_no_errors():
 def test_adding_errors_to_return_value():
     """test that errors can be added to a returnvalue object."""
     error = ErrorCode(code="TEST", description="desc")
-    return_value = ReturnValueWithStatus()
+    return_value = ReturnValueWithStatus[str]()
     return_value.add_error(error)
     assert error in return_value._errors
 
@@ -49,7 +49,7 @@ def test_adding_errors_to_return_value():
 def test_return_value_with_errors_is_invalid_by_default():
     """test a return value object with errors is by default invalid."""
     error = ErrorCode(code="TEST", description="desc")
-    return_value = ReturnValueWithStatus()
+    return_value = ReturnValueWithStatus[str]()
     return_value.add_error(error)
     assert not return_value.is_valid
 
@@ -57,7 +57,7 @@ def test_return_value_with_errors_is_invalid_by_default():
 def test_return_value_can_remain_valid_when_adding_an_error():
     """test adding an error whilst keeping the status valid."""
     error = ErrorCode(code="TEST", description="desc")
-    return_value = ReturnValueWithStatus()
+    return_value = ReturnValueWithStatus[str]()
     return_value.add_error(error, keep_current_status=True)
     assert return_value.is_valid
 
@@ -70,7 +70,7 @@ def test_return_value_remains_invalid_with_keep_current_status_set_to_true():
     """
     error1 = ErrorCode(code="TEST1", description="desc")
     error2 = ErrorCode(code="TEST2", description="desc")
-    return_value = ReturnValueWithStatus()
+    return_value = ReturnValueWithStatus[str]()
     assert return_value.is_valid
     return_value.add_error(error1)
     assert not return_value.is_valid
@@ -84,7 +84,7 @@ def test_return_value_with_error_status_returns_error_value():
     instance with an error and status invalid.
     """
     error = ErrorCode(code="TEST1", description="desc")
-    return_value = ReturnValueWithErrorStatus(error)
+    return_value = ReturnValueWithErrorStatus[str](error)
     assert isinstance(return_value, ReturnValueWithStatus)
     assert error in return_value._errors
     assert not return_value.is_valid
@@ -97,4 +97,4 @@ def test_return_value_with_error_status_raises_type_error():
     """
     error = "not an ErrorCode instance"
     with pytest.raises(TypeError):
-        ReturnValueWithErrorStatus(error)  # type: ignore
+        ReturnValueWithErrorStatus[str](error)  # type: ignore

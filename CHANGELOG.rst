@@ -2,6 +2,10 @@
 Changelog
 =========
 
+1.4.4 (2024-05-23)
+------------------
+* Added typevar for ReturnValueWithStatus result attribute
+
 1.4.0 (2024-05-23)
 ------------------
 * Added ``ErrorListByMixin`` class to support autocompletion and type checking of your custom project errors
