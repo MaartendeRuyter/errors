@@ -15,14 +15,14 @@ ErrorListByMixin class.
 >>>
 >>> class MyProjectErrorCodes(ErrorListByMixin, ModOneErrorcodes, ModTwoErrorcodes): ...
 >>>
->>> MyProjectErrorCodes.ERROR_FROM_MOD_ONE    # this now does not create type checking issues 
+>>> MyProjectErrorCodes.ERROR_FROM_MOD_ONE    # this now does not create type checking issues
 
 """
 
 from errors import ErrorCode
 
 
-class ErrorListByMixin():
+class ErrorListByMixin:
     _errors: dict[str, str] = {}
 
     @classmethod
@@ -32,13 +32,13 @@ class ErrorListByMixin():
         if not error:
             cls._regenerate_errors_list()
             error = cls._errors.get(error_code)
-        
+
         if not error:
             raise KeyError(
                 # cls.error_object(ErrorsClassErrors.COULD_NOT_FIND_ERROR_CODE.value)
             )
         return error
-    
+
     @classmethod
     def _regenerate_errors_list(cls) -> None:
         print("regenerate")
@@ -52,4 +52,3 @@ class ErrorListByMixin():
     def error_object(error_code: ErrorCode) -> dict:
         """Transforms error code into dict."""
         return {"error": error_code.code, "description": error_code.description}
-
