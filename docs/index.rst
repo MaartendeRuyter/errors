@@ -72,10 +72,25 @@ the logic calling this method is aware of the failing request.
 In order to use a single type as return value the error-manager package introduces a `ReturnValue` class
 that can hold the actual response, any possible downstream errors and the status of the return value. See 
 ReturnValue documentation.
+    
+see :doc:`usage section <usage>` on how to create and
+register custom error codes for your project
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents:
+
+   usage
+   return_value
+   mixin_errorlist
+   reference/index
+   contributing
+   authors
+   changelog
 
 
-
-Documentation
-=============
-
-https://errors.readthedocs.io/
+Indices and tables
+==================
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
