@@ -82,6 +82,7 @@ register custom error codes for your project
 
    usage
    return_value
+   mixin_errorlist
    reference/index
    contributing
    authors
