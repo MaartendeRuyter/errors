@@ -1,6 +1,6 @@
 """init file errors module."""
 
-__version__ = "1.4.1"
+__version__ = "1.4.3"
 
 from errors.base import FunctionalErrorsBaseClass, add_error_data, is_error
 from errors.data_classes import ReturnValueWithErrorStatus, ReturnValueWithStatus
